@@ -27,6 +27,22 @@
 	import { scale } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 
+	type Character = {
+		uid: string;
+		created_at: Date;
+		name: string;
+		inPlay: boolean;
+		pending_delete: boolean;
+		disposition: {
+			empathy: number;
+			anger: number;
+			morale: number;
+			honestly: number;
+		};
+		skills: Array<string>;
+		type: string;
+	};
+
 	export let characters: Character[];
 
 	async function patch(res: Response) {
