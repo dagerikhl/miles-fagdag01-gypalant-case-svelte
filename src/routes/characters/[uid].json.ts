@@ -10,10 +10,10 @@ export const patch: RequestHandler<Locals, FormData> = async (request) => {
 		name: request.body.get('name'),
 		imagePublicId: request.body.get('imagePublicId'),
 		disposition: {
-			empathy: parseNumber(request.body.get('stats[empathy]')),
-			anger: parseNumber(request.body.get('stats[anger]')),
-			morale: parseNumber(request.body.get('stats[morale]')),
-			honesty: parseNumber(request.body.get('stats[honesty]'))
+			empathy: parseNumber(request.body.get('disposition[empathy]')),
+			anger: parseNumber(request.body.get('disposition[anger]')),
+			morale: parseNumber(request.body.get('disposition[morale]')),
+			honesty: parseNumber(request.body.get('disposition[honesty]'))
 		},
 		skills: request.body.get('skills') ? request.body.get('skills').split(',') : undefined,
 		type: request.body.get('type'),
