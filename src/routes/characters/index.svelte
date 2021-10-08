@@ -24,9 +24,13 @@
 
 <script lang="ts">
 	import type { Character } from '$lib/data/characters';
+	import type { Dispositions } from '$lib/data/Disposition';
 	import { scale } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
+
 	import StatRoller from '$lib/components/stat-roller/StatRoller.svelte';
+
+	const dispositions: Dispositions = { empathy: 10, anger: 10, morale: 10, honesty: 10 };
 
 	export let characters: Character[];
 
@@ -67,20 +71,20 @@
 		<fieldset>
 			<legend>Disposition</legend>
 			<label>
-				Empathy
-				<input type="range" min="0" max="20" />
+				Empathy <span>{dispositions.empathy}</span>
+				<input type="range" bind:value={dispositions.empathy} min="0" max="20" />
 			</label>
 			<label>
-				Anger
-				<input type="range" min="0" max="20" />
+				<span>Anger</span> <span>{dispositions.anger}</span>
+				<input type="range" bind:value={dispositions.anger} min="0" max="20" />
 			</label>
 			<label>
-				Morale
-				<input type="range" min="0" max="20" />
+				Morale <span>{dispositions.morale}</span>
+				<input type="range" bind:value={dispositions.morale} min="0" max="20" />
 			</label>
 			<label>
-				Honestly
-				<input type="range" min="0" max="20" />
+				Honesty <span>{dispositions.honesty}</span>
+				<input type="range" bind:value={dispositions.honesty} min="0" max="20" />
 			</label>
 		</fieldset>
 		<StatRoller />

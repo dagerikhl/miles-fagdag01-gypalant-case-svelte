@@ -1,4 +1,5 @@
 import type { Stats } from './Stats';
+import type { Dispositions } from './Disposition';
 
 export type Character = {
 	uid: string;
@@ -6,12 +7,7 @@ export type Character = {
 	name: string;
 	inPlay: boolean;
 	pending_delete: boolean;
-	disposition: {
-		empathy: number;
-		anger: number;
-		morale: number;
-		honesty: number;
-	};
+	disposition: Dispositions;
 	skills: Array<string>;
 	type: string;
 	stats: Stats;
