@@ -4,11 +4,22 @@
 </script>
 
 <div class="stat">
-	{label}: {value}
+	<div class="label">{label}:</div>
+	<div class="value">{value}</div>
 </div>
 
 <style>
 	.stat {
 		display: flex;
+	}
+
+	.label {
+		width: 100px;
+		font-weight: bold;
+	}
+
+	.value {
+		width: 24px;
+		text-align: right;
 	}
 </style>

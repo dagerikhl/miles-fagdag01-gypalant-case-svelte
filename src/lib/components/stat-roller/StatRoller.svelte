@@ -9,6 +9,11 @@
 	const display_stats = spring(stats, { stiffness: 0.085 });
 	$: $display_stats = stats;
 
+	$: strength = Math.round($display_stats.strength);
+	$: dexterity = Math.round($display_stats.dexterity);
+	$: intelligence = Math.round($display_stats.intelligence);
+	$: charisma = Math.round($display_stats.charisma);
+
 	const rollStat = () => Math.round(Math.random() * 15 + 3);
 
 	const rollStats = () => {
@@ -27,43 +32,24 @@
 	<fieldset>
 		<legend>Stats (total {Object.values(stats).reduce((res, cur) => res + cur, 0)})</legend>
 
-		<!-- TODO Avoid having to call Math.round two places -->
-		<Stat label="Strength" value={Math.round($display_stats.strength)} />
-		<Stat label="Dexterity" value={Math.round($display_stats.dexterity)} />
-		<Stat label="Intelligence" value={Math.round($display_stats.intelligence)} />
-		<Stat label="Charisma" value={Math.round($display_stats.charisma)} />
+		<div class="stats">
+			<Stat label="Strength" value={strength} />
+			<Stat label="Dexterity" value={dexterity} />
+			<Stat label="Intelligence" value={intelligence} />
+			<Stat label="Charisma" value={charisma} />
+		</div>
 
-		<input
-			name="stats[strength]"
-			type="number"
-			hidden
-			value={Math.round($display_stats.strength)}
-		/>
-		<input
-			name="stats[dexterity]"
-			type="number"
-			hidden
-			value={Math.round($display_stats.dexterity)}
-		/>
-		<input
-			name="stats[intelligence]"
-			type="number"
-			hidden
-			value={Math.round($display_stats.intelligence)}
-		/>
-		<input
-			name="stats[charisma]"
-			type="number"
-			hidden
-			value={Math.round($display_stats.charisma)}
-		/>
+		<input name="stats[strength]" type="number" hidden value={strength} />
+		<input name="stats[dexterity]" type="number" hidden value={strength} />
+		<input name="stats[intelligence]" type="number" hidden value={intelligence} />
+		<input name="stats[charisma]" type="number" hidden value={charisma} />
 	</fieldset>
 </div>
 
 <style>
 	.container {
 		display: flex;
-		flex-direction: column;
+		justify-content: space-around;
 		align-items: center;
 		gap: 0.5em;
 		margin: 0.5em 0;
@@ -91,5 +77,11 @@
 	.roller img {
 		height: 48px;
 		width: 48px;
+	}
+
+	.stats {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25em;
 	}
 </style>
