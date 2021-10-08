@@ -23,8 +23,8 @@
 
 <script lang="ts">
 	import type { Character } from '$lib/data/characters';
-	import CharacterSelector from '$lib/components/CharacterSelector.svelte';
-	import ViewCharacter from '$lib/components/CharacterOverview.svelte';
+	import CharacterSelector from '$lib/components/character-overview/CharacterSelector.svelte';
+	import ViewCharacter from '$lib/components/character-overview/CharacterOverview.svelte';
 
 	export let characters: Character[];
 

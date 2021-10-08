@@ -1,14 +1,17 @@
 <script lang="ts">
 	import type { Character } from '$lib/data/characters';
+	import StatSection from '$lib/components/StatSection.svelte';
 
 	export let skills: Character['skills'] = undefined;
 </script>
 
-<div class="container">
-	{#each skills ?? [] as skill (skill)}
-		{skill}
-	{/each}
-</div>
+<StatSection>
+	<div class="container">
+		{#each skills ?? [] as skill (skill)}
+			{skill}
+		{/each}
+	</div>
+</StatSection>
 
 <style>
 	.container {
