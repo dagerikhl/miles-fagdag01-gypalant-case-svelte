@@ -71,19 +71,43 @@
 			<legend>Disposition</legend>
 			<label>
 				Empathy <span>{dispositions.empathy}</span>
-				<input type="range" bind:value={dispositions.empathy} name="magic" min="0" max="20" />
+				<input
+					type="range"
+					bind:value={dispositions.empathy}
+					name="disposition[empathy]"
+					min="0"
+					max="20"
+				/>
 			</label>
 			<label>
 				<span>Anger</span> <span>{dispositions.anger}</span>
-				<input type="range" bind:value={dispositions.anger} min="0" max="20" />
+				<input
+					type="range"
+					bind:value={dispositions.anger}
+					name="disposition[anger]"
+					min="0"
+					max="20"
+				/>
 			</label>
 			<label>
 				Morale <span>{dispositions.morale}</span>
-				<input type="range" bind:value={dispositions.morale} min="0" max="20" />
+				<input
+					type="range"
+					bind:value={dispositions.morale}
+					name="disposition[morale]"
+					min="0"
+					max="20"
+				/>
 			</label>
 			<label>
 				Honesty <span>{dispositions.honesty}</span>
-				<input type="range" bind:value={dispositions.honesty} min="0" max="20" />
+				<input
+					type="range"
+					bind:value={dispositions.honesty}
+					name="disposition[honesty]"
+					min="0"
+					max="20"
+				/>
 			</label>
 		</fieldset>
 		<StatRoller />
