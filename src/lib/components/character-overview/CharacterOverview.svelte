@@ -13,10 +13,10 @@
 		<div class="character">
 			<div class="general"><CharacterOverviewGeneral {character} /></div>
 			<div class="disposition">
-				<CharacterOverviewDisposition disposition={character.disposition} />
+				<CharacterOverviewDisposition disposition={character?.disposition} />
 			</div>
-			<div class="stats"><CharacterOverviewStats stats={character.stats} /></div>
-			<div class="skills"><CharacterOverviewSkills skills={character.skills} /></div>
+			<div class="stats"><CharacterOverviewStats stats={character?.stats} /></div>
+			<div class="skills"><CharacterOverviewSkills skills={character?.skills} /></div>
 		</div>
 	{:else}
 		<span>Select a character</span>

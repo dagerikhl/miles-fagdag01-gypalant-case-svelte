@@ -2,16 +2,20 @@
 	import type { Character } from '$lib/data/characters';
 	import StatSection from '$lib/components/StatSection.svelte';
 	import CharacterStat from '$lib/components/character-overview/CharacterStat.svelte';
+	import { spring } from 'svelte/motion';
 
 	export let stats: Character['stats'] = undefined;
+
+	const display_stats = spring(stats, { stiffness: 0.1 });
+	$: $display_stats = stats;
 </script>
 
 <StatSection>
 	<div class="container">
-		<CharacterStat name="Strength" value={stats?.strength} />
-		<CharacterStat name="Dexterity" value={stats?.dexterity} />
-		<CharacterStat name="Intelligence" value={stats?.intelligence} />
-		<CharacterStat name="Charisma" value={stats?.charisma} />
+		<CharacterStat name="Strength" value={Math.round($display_stats?.strength ?? 0)} />
+		<CharacterStat name="Dexterity" value={Math.round($display_stats?.dexterity ?? 0)} />
+		<CharacterStat name="Intelligence" value={Math.round($display_stats?.intelligence ?? 0)} />
+		<CharacterStat name="Charisma" value={Math.round($display_stats?.charisma ?? 0)} />
 	</div>
 </StatSection>
 
