@@ -8,6 +8,7 @@ export const patch: RequestHandler<Locals, FormData> = async (request) => {
 	return api(request, `characters/${request.locals.userid}/${request.params.uid}`, {
 		// TODO Add more body fields here
 		name: request.body.get('name'),
+		imagePublicId: request.body.get('imagePublicId'),
 		disposition: {
 			empathy: parseNumber(request.body.get('stats[empathy]')),
 			anger: parseNumber(request.body.get('stats[anger]')),

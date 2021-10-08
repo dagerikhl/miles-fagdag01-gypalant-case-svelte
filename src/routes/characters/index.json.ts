@@ -26,6 +26,7 @@ export const post: RequestHandler<Locals, FormData> = async (request) => {
 		// with the `body.get(key)` method
 		// TODO Add more body fields here
 		name: request.body.get('name'),
+		imagePublicId: request.body.get('imagePublicId'),
 		disposition: {
 			empathy: parseNumber(request.body.get('disposition[empathy]')),
 			anger: parseNumber(request.body.get('disposition[anger]')),

@@ -9,6 +9,7 @@ export type Character = {
 	pending_delete: boolean;
 	disposition: Dispositions;
 	skills: Array<string>;
+	imagePublicId: string;
 	type: string;
 	stats: Stats;
 };

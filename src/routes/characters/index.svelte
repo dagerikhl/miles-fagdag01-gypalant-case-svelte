@@ -67,6 +67,10 @@
 			Name
 			<input name="name" autocomplete="off" />
 		</label>
+		<label>
+			Public image id
+			<input name="imagePublicId" autocomplete="off" />
+		</label>
 		<fieldset>
 			<legend>Disposition</legend>
 			<label>
@@ -111,6 +115,7 @@
 			</label>
 		</fieldset>
 		<StatRoller />
+
 		<button class="submit">I'm done!</button>
 	</form>
 </div>
@@ -206,6 +211,10 @@
 		width: 25px;
 		border-radius: 42px;
 		background: var(--primary-color);
+		cursor: pointer;
+	}
+
+	button {
 		cursor: pointer;
 	}
 	.new input {
