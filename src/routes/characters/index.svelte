@@ -79,7 +79,7 @@
 			Name
 			<input name="name" autocomplete="off" />
 		</label>
-		<formfield>
+		<fieldset>
 			<legend>Disposition</legend>
 			<label>
 				Empathy
@@ -97,7 +97,7 @@
 				Honestly
 				<input type="range" min="0" max="20" />
 			</label>
-		</formfield>
+		</fieldset>
 	</form>
 
 	{#each characters as character (character.uid)}
@@ -162,10 +162,20 @@
 
 	.new {
 		margin: 0 0 0.5rem 0;
+		display: grid;
+		grid-gap: 1rem;
 	}
 
 	input {
 		border: 1px solid transparent;
+	}
+
+	fieldset {
+		margin: 0;
+		background: white;
+		border-color: transparent;
+		padding: 0.5em 1em 0.3em 1em;
+		border-radius: 8px;
 	}
 
 	input:focus-visible {
@@ -173,7 +183,58 @@
 		border: 1px solid #ff3e00 !important;
 		outline: none;
 	}
-
+	input[type='range'] {
+		height: 31px;
+		-webkit-appearance: none;
+		margin: 10px 0;
+		width: 100%;
+	}
+	input[type='range']:focus {
+		outline: none;
+	}
+	input[type='range']::-webkit-slider-runnable-track {
+		width: 100%;
+		height: 7px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: none;
+		background: var(--tertiary-color);
+		border-radius: 8px;
+		border: 0px solid #000000;
+	}
+	input[type='range']::-webkit-slider-thumb {
+		box-shadow: 0px 0px 0px #000000;
+		border: 0px solid #000000;
+		height: 25px;
+		width: 25px;
+		border-radius: 42px;
+		background: var(--primary-color);
+		cursor: pointer;
+		-webkit-appearance: none;
+		margin-top: -9px;
+	}
+	input[type='range']:focus::-webkit-slider-runnable-track {
+		background: var(--tertiary-color);
+	}
+	input[type='range']::-moz-range-track {
+		width: 100%;
+		height: 7px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000;
+		background: var(--tertiary-color);
+		border-radius: 8px;
+		border: 0px solid #000000;
+	}
+	input[type='range']::-moz-range-thumb {
+		box-shadow: 0px 0px 0px #000000;
+		border: none;
+		height: 25px;
+		width: 25px;
+		border-radius: 42px;
+		background: var(--primary-color);
+		cursor: pointer;
+	}
 	.new input {
 		font-size: 28px;
 		width: 100%;
