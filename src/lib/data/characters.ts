@@ -1,3 +1,5 @@
+import type { Stats } from './Stats';
+
 export type Character = {
 	uid: string;
 	created_at: Date;
@@ -12,10 +14,5 @@ export type Character = {
 	};
 	skills: Array<string>;
 	type: string;
-	stats: {
-		strength: number;
-		dexterity: number;
-		intelligence: number;
-		charisma: number;
-	};
+	stats: Stats;
 };

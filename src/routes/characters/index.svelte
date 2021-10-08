@@ -26,6 +26,7 @@
 	import type { Character } from '$lib/data/characters';
 	import { scale } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
+	import StatRoller from '$lib/components/stat-roller/StatRoller.svelte';
 
 	export let characters: Character[];
 
@@ -82,6 +83,7 @@
 				<input type="range" min="0" max="20" />
 			</label>
 		</fieldset>
+		<StatRoller />
 		<button class="submit">I'm done!</button>
 	</form>
 </div>
