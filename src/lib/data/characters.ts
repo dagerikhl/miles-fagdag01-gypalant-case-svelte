@@ -12,4 +12,10 @@ export type Character = {
 	};
 	skills: Array<string>;
 	type: string;
+	stats: {
+		strength: number;
+		dexterity: number;
+		intelligence: number;
+		charisma: number;
+	};
 };

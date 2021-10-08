@@ -12,7 +12,8 @@ export const patch: RequestHandler<Locals, FormData> = async (request) => {
 			? JSON.parse(request.body.get('disposition'))
 			: undefined,
 		skills: request.body.get('skills') ? request.body.get('skills').split(',') : undefined,
-		type: request.body.get('type')
+		type: request.body.get('type'),
+		stats: request.body.get('stats') ? JSON.parse(request.body.get('stats')) : undefined
 	});
 };
 
