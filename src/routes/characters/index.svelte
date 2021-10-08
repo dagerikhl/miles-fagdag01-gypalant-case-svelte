@@ -25,9 +25,8 @@
 <script lang="ts">
 	import type { Character } from '$lib/data/characters';
 	import type { Dispositions } from '$lib/data/Disposition';
-	import { scale } from 'svelte/transition';
-	import { flip } from 'svelte/animate';
 	import StatRoller from '$lib/components/stat-roller/StatRoller.svelte';
+	import SkillsPicker from '$lib/components/skills-picker/SkillsPicker.svelte';
 
 	const dispositions: Dispositions = { empathy: 10, anger: 10, morale: 10, honesty: 10 };
 
@@ -115,6 +114,7 @@
 			</label>
 		</fieldset>
 		<StatRoller />
+		<SkillsPicker />
 
 		<button class="submit">I'm done!</button>
 	</form>
