@@ -82,6 +82,7 @@
 				<input type="range" min="0" max="20" />
 			</label>
 		</fieldset>
+		<button class="submit">I'm done!</button>
 	</form>
 </div>
 
@@ -95,8 +96,20 @@
 
 	.new {
 		margin: 0 0 0.5rem 0;
-		display: grid;
-		grid-gap: 1rem;
+		display: flex;
+		flex-direction: column;
+		grid-gap: clamp(0.9rem, 1vw + 1rem, 2.2rem);
+	}
+
+	.submit {
+		background-color: var(--accent-color);
+		padding: 0.7em 2em 0.7em 2em;
+		border-radius: 8px;
+		border: 1px solid transparent;
+		width: 10rem;
+		align-self: end;
+		/* Jada, jada... */
+		margin-top: 2rem;
 	}
 
 	input {

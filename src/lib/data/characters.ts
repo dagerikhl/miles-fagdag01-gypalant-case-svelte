@@ -8,7 +8,7 @@ export type Character = {
 		empathy: number;
 		anger: number;
 		morale: number;
-		honestly: number;
+		honesty: number;
 	};
 	skills: Array<string>;
 	type: string;
