@@ -31,7 +31,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@cloudinary/svelte": "^1.0.0-beta.11",
+		"@cloudinary/url-gen": "^1.0.0",
 		"@fontsource/fira-mono": "^4.5.0",
 		"@lukeed/uuid": "^2.0.0",
 		"cookie": "^0.4.1",

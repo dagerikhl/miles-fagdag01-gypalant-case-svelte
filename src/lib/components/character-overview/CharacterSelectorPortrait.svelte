@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import type { Character } from '$lib/data/characters';
+	import { cloudinaryImage } from '$lib/utils/image';
 
 	export let character: Character = undefined;
 	const dispatch = createEventDispatcher();
@@ -10,7 +11,7 @@
 	<div class="image-wrapper">
 		<img
 			class="image"
-			src="https://pbs.twimg.com/profile_images/1092451626781163523/0YzJMi-8.jpg"
+			src={cloudinaryImage(character.imagePublicId)}
 			alt="Character portrait for {character.name}"
 		/>
 	</div>
