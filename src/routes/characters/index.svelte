@@ -83,57 +83,6 @@
 			</label>
 		</fieldset>
 	</form>
-
-	{#each characters as character (character.uid)}
-		<div
-			class="character"
-			class:inPlay={character.inPlay}
-			transition:scale|local={{ start: 0.7 }}
-			animate:flip={{ duration: 200 }}
-		>
-			<form
-				action="/characters/{character.uid}.json?_method=patch"
-				method="post"
-				use:enhance={{
-					pending: (data) => {
-						character.inPlay = !!data.get('inPlay');
-					},
-					result: patch
-				}}
-			>
-				<input type="hidden" name="inPlay" value={character.inPlay ? '' : 'true'} />
-				<button
-					class="toggle"
-					aria-label="Mark character as {character.inPlay ? 'not in play' : 'in play'}"
-				/>
-			</form>
-
-			<form
-				class="name"
-				action="/characters/{character.uid}.json?_method=patch"
-				method="post"
-				use:enhance={{
-					result: patch
-				}}
-			>
-				<input aria-label="Edit character" type="text" name="name" value={character.name} />
-				<button class="save" aria-label="Save character" />
-			</form>
-
-			<form
-				action="/characters/{character.uid}.json?_method=delete"
-				method="post"
-				use:enhance={{
-					pending: () => (character.pending_delete = true),
-					result: () => {
-						characters = characters.filter((c) => c.uid !== character.uid);
-					}
-				}}
-			>
-				<button class="delete" aria-label="Delete character" disabled={character.pending_delete} />
-			</form>
-		</div>
-	{/each}
 </div>
 
 <style>
