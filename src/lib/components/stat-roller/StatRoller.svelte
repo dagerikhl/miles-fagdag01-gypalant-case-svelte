@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { Stats } from '$lib/data/Stats';
 	import { spring } from 'svelte/motion';
+	import StatsView from '../stats/StatsView.svelte';
 	import dice from './dice.svg';
-	import Stat from './Stat.svelte';
 
 	let stats: Stats = { strength: 10, dexterity: 10, intelligence: 10, charisma: 10 };
 
@@ -32,15 +32,10 @@
 	<fieldset>
 		<legend>Stats (total {Object.values(stats).reduce((res, cur) => res + cur, 0)})</legend>
 
-		<div class="stats">
-			<Stat label="Strength" value={strength} />
-			<Stat label="Dexterity" value={dexterity} />
-			<Stat label="Intelligence" value={intelligence} />
-			<Stat label="Charisma" value={charisma} />
-		</div>
+		<StatsView {stats} />
 
 		<input name="stats[strength]" type="number" hidden value={strength} />
-		<input name="stats[dexterity]" type="number" hidden value={strength} />
+		<input name="stats[dexterity]" type="number" hidden value={dexterity} />
 		<input name="stats[intelligence]" type="number" hidden value={intelligence} />
 		<input name="stats[charisma]" type="number" hidden value={charisma} />
 	</fieldset>
@@ -77,11 +72,5 @@
 	.roller img {
 		height: 48px;
 		width: 48px;
-	}
-
-	.stats {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25em;
 	}
 </style>
