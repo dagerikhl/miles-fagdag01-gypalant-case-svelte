@@ -6,10 +6,6 @@
 	const select = (character: Character) => (selected = character);
 </script>
 
-<svelte:head>
-	<title>Characters</title>
-</svelte:head>
-
 <div class="character-list">
 	{#each characters as character (character.uid)}
 		<button type="button" class="character-portrait" on:click={select(character)}>
