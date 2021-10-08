@@ -3,9 +3,10 @@
 	import StatSection from '$lib/components/StatSection.svelte';
 	import { cloudinaryImage } from '$lib/utils/image';
 	export let character: Character = undefined;
+	export let tint: string = undefined;
 </script>
 
-<StatSection>
+<StatSection {tint}>
 	<div class="container">
 		<h2>{character?.name}</h2>
 		<div class="image-wrapper">

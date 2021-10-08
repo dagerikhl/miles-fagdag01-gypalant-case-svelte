@@ -3,9 +3,10 @@
 	import StatSection from '$lib/components/StatSection.svelte';
 
 	export let skills: Character['skills'] = undefined;
+	export let tint: string = undefined;
 </script>
 
-<StatSection>
+<StatSection {tint}>
 	<div class="container">
 		{#each skills ?? [] as skill (skill)}
 			<div>

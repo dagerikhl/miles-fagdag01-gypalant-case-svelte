@@ -5,6 +5,7 @@
 	import { Spring, spring } from 'svelte/motion';
 
 	export let disposition: Character['disposition'] = undefined;
+	export let tint: string = undefined;
 
 	const display_disposition: Spring<Character['disposition']> = spring(disposition, {
 		stiffness: 0.1
@@ -12,7 +13,7 @@
 	$: $display_disposition = disposition;
 </script>
 
-<StatSection>
+<StatSection {tint}>
 	<div class="container">
 		<CharacterStat name="Empathy" value={Math.round($display_disposition?.empathy ?? 0)} />
 		<CharacterStat name="Anger" value={Math.round($display_disposition?.anger ?? 0)} />

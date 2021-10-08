@@ -5,12 +5,13 @@
 	import { spring } from 'svelte/motion';
 
 	export let stats: Character['stats'] = undefined;
+	export let tint: string = undefined;
 
 	const display_stats = spring(stats, { stiffness: 0.1 });
 	$: $display_stats = stats;
 </script>
 
-<StatSection>
+<StatSection {tint}>
 	<div class="container">
 		<CharacterStat name="Strength" value={Math.round($display_stats?.strength ?? 0)} />
 		<CharacterStat name="Dexterity" value={Math.round($display_stats?.dexterity ?? 0)} />

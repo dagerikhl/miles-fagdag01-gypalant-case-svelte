@@ -6,17 +6,24 @@
 	import CharacterOverviewStats from '$lib/components/character-overview/CharacterOverviewStats.svelte';
 
 	export let character: Character = undefined;
+	export let characterTint: string = undefined;
 </script>
 
 <div class="container">
 	{#if character !== undefined}
 		<div class="character">
-			<div class="general"><CharacterOverviewGeneral {character} /></div>
-			<div class="disposition">
-				<CharacterOverviewDisposition disposition={character?.disposition} />
+			<div class="general">
+				<CharacterOverviewGeneral {character} tint={characterTint} />
 			</div>
-			<div class="stats"><CharacterOverviewStats stats={character?.stats} /></div>
-			<div class="skills"><CharacterOverviewSkills skills={character?.skills} /></div>
+			<div class="disposition">
+				<CharacterOverviewDisposition disposition={character?.disposition} tint={characterTint} />
+			</div>
+			<div class="stats">
+				<CharacterOverviewStats stats={character?.stats} tint={characterTint} />
+			</div>
+			<div class="skills">
+				<CharacterOverviewSkills skills={character?.skills} tint={characterTint} />
+			</div>
 		</div>
 	{:else}
 		<span>Select a character</span>
@@ -28,21 +35,26 @@
 		width: 100%;
 		margin-top: 0.25em;
 	}
+
 	.character {
 		display: grid;
 		grid-template-columns: 1fr 2fr;
 		grid-template-rows: 1fr 1fr 1fr;
 		grid-gap: 3px;
 	}
+
 	.general {
 		grid-area: 1 / 1 / 3 / 2;
 	}
+
 	.disposition {
 		grid-area: 1 / 2 / 2 / 2;
 	}
+
 	.stats {
 		grid-area: 2 / 2 / 3 / 2;
 	}
+
 	.skills {
 		grid-area: 3 / 1 / 4 / 3;
 	}
