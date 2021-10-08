@@ -8,7 +8,9 @@
 <StatSection>
 	<div class="container">
 		{#each skills ?? [] as skill (skill)}
-			{skill}
+			<div>
+				{skill}
+			</div>
 		{/each}
 	</div>
 </StatSection>
