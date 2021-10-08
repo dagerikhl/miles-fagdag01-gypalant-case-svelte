@@ -14,25 +14,44 @@
 	$: intelligence = Math.round($display_stats.intelligence);
 	$: charisma = Math.round($display_stats.charisma);
 
+	let dice_pos = { x: 0, y: 0 };
+
+	const display_dice_pos = spring(dice_pos, { stiffness: 0.25 });
+	$: $display_dice_pos = dice_pos;
+
 	const rollStat = () => Math.round(Math.random() * 15 + 3);
 
 	const rollStats = () => {
 		for (const stat of Object.keys(stats)) {
 			stats[stat] = rollStat();
 		}
+
+		const interval = setInterval(() => {
+			dice_pos = { x: Math.random() * 30 - 15, y: Math.random() * 30 - 15 };
+		}, 10);
+
+		setTimeout(() => {
+			clearInterval(interval);
+			dice_pos = { x: 0, y: 0 };
+		}, 500);
 	};
 </script>
 
 <div class="container">
 	<button class="roller" type="button" on:click={() => rollStats()} aria-label="Randomize stats">
-		<img src={dice} alt="Dice" />
+		<img
+			class="dice"
+			src={dice}
+			alt="Dice"
+			style="transform: translate({$display_dice_pos.x}px, {$display_dice_pos.y}px)"
+		/>
 		Randomize stats!
 	</button>
 
 	<fieldset>
 		<legend>Stats (total {Object.values(stats).reduce((res, cur) => res + cur, 0)})</legend>
 
-		<StatsView {stats} />
+		<StatsView stats={{ strength, dexterity, intelligence, charisma }} />
 
 		<input name="stats[strength]" type="number" hidden value={strength} />
 		<input name="stats[dexterity]" type="number" hidden value={dexterity} />
@@ -68,7 +87,7 @@
 		background-color: #f2f2f2;
 	}
 
-	.roller img {
+	.dice {
 		height: 48px;
 		width: 48px;
 	}
