@@ -74,6 +74,13 @@
 		border-radius: 8px;
 		border: 0px solid #000000;
 	}
+
+	input:focus-visible {
+		box-shadow: inset 1px 1px 6px rgba(0, 0, 0, 0.1);
+		border: 1px solid #ff3e00 !important;
+		outline: none;
+	}
+
 	input[type='range']::-webkit-slider-thumb {
 		box-shadow: 0px 0px 0px #000000;
 		border: 0px solid #000000;
