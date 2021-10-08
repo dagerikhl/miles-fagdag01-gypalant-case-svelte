@@ -60,7 +60,7 @@
 </svelte:head>
 
 <div class="characters">
-	<h1>Characters</h1>
+	<h1>Add new character</h1>
 
 	<form
 		class="new"
@@ -75,7 +75,29 @@
 			}
 		}}
 	>
-		<input name="name" aria-label="Add character" placeholder="+ tap to add a character" />
+		<label>
+			Name
+			<input name="name" autocomplete="off" />
+		</label>
+		<formfield>
+			<legend>Disposition</legend>
+			<label>
+				Empathy
+				<input type="range" min="0" max="20" />
+			</label>
+			<label>
+				Anger
+				<input type="range" min="0" max="20" />
+			</label>
+			<label>
+				Morale
+				<input type="range" min="0" max="20" />
+			</label>
+			<label>
+				Honestly
+				<input type="range" min="0" max="20" />
+			</label>
+		</formfield>
 	</form>
 
 	{#each characters as character (character.uid)}
@@ -157,7 +179,7 @@
 		width: 100%;
 		padding: 0.5em 1em 0.3em 1em;
 		box-sizing: border-box;
-		background: rgba(255, 255, 255, 0.05);
+		/* 	background: rgba(255, 255, 255, 0.05); */
 		border-radius: 8px;
 		text-align: center;
 	}
