@@ -25,19 +25,10 @@
 	import type { Character } from '$lib/data/characters';
 	import CharacterSelector from '$lib/components/character-overview/CharacterSelector.svelte';
 	import ViewCharacter from '$lib/components/character-overview/CharacterOverview.svelte';
-	import { cloudinaryImage } from '$lib/utils/image';
-	import FastAverageColor from 'fast-average-color';
-
-	const fac = new FastAverageColor();
 
 	export let characters: Character[];
 	let selectedCharacter: Character;
-
-	const getImageAverageColor = async (character: Character): Promise<string> => {
-		if (character?.imagePublicId) {
-			return fac.getColorAsync(cloudinaryImage(character.imagePublicId));
-		}
-	};
+	let selectedTint: { r: number; g: number; b: number; a: number };
 </script>
 
 <svelte:head>
@@ -47,12 +38,8 @@
 <div class="characters">
 	<h1>Characters</h1>
 
-	<CharacterSelector {characters} bind:selected={selectedCharacter} />
-	{#await getImageAverageColor(selectedCharacter)}
-		<ViewCharacter character={selectedCharacter} />
-	{:then averageColor}
-		<ViewCharacter character={selectedCharacter} characterTint={averageColor?.rgba} />
-	{/await}
+	<CharacterSelector {characters} bind:selected={selectedCharacter} bind:selectedTint />
+	<ViewCharacter character={selectedCharacter} characterTint={selectedTint} />
 </div>
 
 <style>

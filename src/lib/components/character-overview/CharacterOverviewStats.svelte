@@ -5,7 +5,7 @@
 	import { spring } from 'svelte/motion';
 
 	export let stats: Character['stats'] = undefined;
-	export let tint: string = undefined;
+	export let tint: { r: number; g: number; b: number; a: number } = undefined;
 
 	const display_stats = spring(stats, { stiffness: 0.1 });
 	$: $display_stats = stats;

@@ -5,7 +5,7 @@
 	import { Spring, spring } from 'svelte/motion';
 
 	export let disposition: Character['disposition'] = undefined;
-	export let tint: string = undefined;
+	export let tint: { r: number; g: number; b: number; a: number } = undefined;
 
 	const display_disposition: Spring<Character['disposition']> = spring(disposition, {
 		stiffness: 0.1

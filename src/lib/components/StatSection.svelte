@@ -1,32 +1,28 @@
 <script lang="ts">
 	import { normal } from 'color-blend';
+	import { spring, Spring } from 'svelte/motion';
 
-	export let tint: string = undefined;
+	export let tint: { r: number; g: number; b: number; a: number } = undefined;
 
 	const rgbaToStr = ({ r, g, b, a }: { r: number; g: number; b: number; a: number }): string => {
 		return `rgba(${r}, ${g}, ${b}, ${a})`;
 	};
-	const fromStrToRgba = (rgba: string): { r: number; g: number; b: number; a: number } => {
-		const str = rgba.replace('rgba(', '').replace(')', '');
-		const arr = str.split(',').map((str) => +str.trim());
-		return {
-			r: arr[0],
-			g: arr[1],
-			b: arr[2],
-			a: 0.3
-		};
-	};
 
-	const getBackground = (tintBg: string): string => {
+	const getBackground = (tintBg: { r: number; g: number; b: number; a: number }): string => {
 		const background = { r: 277, g: 277, b: 277, a: 1 };
 		if (!tintBg) {
 			return rgbaToStr(background);
 		}
-		return rgbaToStr(normal(background, fromStrToRgba(tint)));
+		return rgbaToStr(normal(background, tintBg));
 	};
+
+	const display_background: Spring<{ r: number; g: number; b: number; a: number }> = spring(tint, {
+		stiffness: 0.1
+	});
+	$: $display_background = tint;
 </script>
 
-<div class="section" style="background: {getBackground(tint)}">
+<div class="section" style="background: {getBackground($display_background)}">
 	<slot />
 </div>
 

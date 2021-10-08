@@ -3,7 +3,7 @@
 	import StatSection from '$lib/components/StatSection.svelte';
 	import { cloudinaryImage } from '$lib/utils/image';
 	export let character: Character = undefined;
-	export let tint: string = undefined;
+	export let tint: { r: number; g: number; b: number; a: number } = undefined;
 </script>
 
 <StatSection {tint}>

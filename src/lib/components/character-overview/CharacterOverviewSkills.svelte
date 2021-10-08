@@ -3,7 +3,7 @@
 	import StatSection from '$lib/components/StatSection.svelte';
 
 	export let skills: Character['skills'] = undefined;
-	export let tint: string = undefined;
+	export let tint: { r: number; g: number; b: number; a: number } = undefined;
 </script>
 
 <StatSection {tint}>

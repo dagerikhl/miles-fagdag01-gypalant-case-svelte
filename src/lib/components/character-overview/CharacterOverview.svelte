@@ -6,7 +6,7 @@
 	import CharacterOverviewStats from '$lib/components/character-overview/CharacterOverviewStats.svelte';
 
 	export let character: Character = undefined;
-	export let characterTint: string = undefined;
+	export let characterTint: { r: number; g: number; b: number; a: number } = undefined;
 </script>
 
 <div class="container">
