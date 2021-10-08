@@ -4,6 +4,7 @@
 	let count = 0;
 
 	const displayed_count = spring();
+	let offset: number;
 	$: displayed_count.set(count);
 	$: offset = modulo($displayed_count, 1);
 
