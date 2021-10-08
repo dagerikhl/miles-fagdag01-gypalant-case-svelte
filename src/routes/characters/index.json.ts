@@ -24,7 +24,12 @@ export const post: RequestHandler<Locals, FormData> = async (request) => {
 		// object, which allows us to get form data
 		// with the `body.get(key)` method
 		// TODO Add more body fields here
-		name: request.body.get('name')
+		name: request.body.get('name'),
+		disposition: request.body.get('disposition')
+			? JSON.parse(request.body.get('disposition'))
+			: undefined,
+		skills: request.body.get('skills') ? request.body.get('skills').split(',') : undefined,
+		type: request.body.get('type')
 	});
 
 	return response;
