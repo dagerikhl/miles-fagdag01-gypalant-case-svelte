@@ -27,10 +27,10 @@ export const post: RequestHandler<Locals, FormData> = async (request) => {
 		// TODO Add more body fields here
 		name: request.body.get('name'),
 		disposition: {
-			empathy: parseNumber(request.body.get('stats[empathy]')),
-			anger: parseNumber(request.body.get('stats[anger]')),
-			morale: parseNumber(request.body.get('stats[morale]')),
-			honesty: parseNumber(request.body.get('stats[honesty]'))
+			empathy: parseNumber(request.body.get('disposition[empathy]')),
+			anger: parseNumber(request.body.get('disposition[anger]')),
+			morale: parseNumber(request.body.get('disposition[morale]')),
+			honesty: parseNumber(request.body.get('disposition[honesty]'))
 		},
 		skills: request.body.get('skills') ? request.body.get('skills').split(',') : undefined,
 		type: request.body.get('type'),
